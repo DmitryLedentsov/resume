@@ -274,3 +274,33 @@ a:hover{text-decoration:underline}
   font-size: 13px;
   color:#d7dde6;
 }
+
+
+/* --- Mobile fix: sidebar must NOT overlay content --- */
+@media (max-width: 900px) {
+  .shell {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px;
+  }
+
+  .sidebar {
+    width: 100% !important;
+    max-width: none !important;
+
+    /* важно: убрать "прилипание" */
+    position: static !important;
+    top: auto !important;
+
+    /* если у тебя было fixed где-то */
+    left: auto !important;
+    right: auto !important;
+
+    z-index: auto !important;
+  }
+
+  .main {
+    width: 100% !important;
+    min-width: 0;
+  }
+}
